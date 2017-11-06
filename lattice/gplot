@@ -1,0 +1,12 @@
+set term postscript eps
+set output "plot.eps" 
+set multiplot
+set size 1,0.46
+set origin 0,0.44
+set xrange[10000:20000]
+p 'twiss.dat' using 2:3 with lines
+set origin 0,0 
+set size 1,0.46
+set xrange[10000:20000]
+set yrange[0:3]
+p 'optics.out' using 1:2 with lines

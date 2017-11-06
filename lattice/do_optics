@@ -1,0 +1,23 @@
+#!/usr/bin/perl
+open(in,$ARGV[0]);
+open(out,">$ARGV[1]");
+while(<in>){
+    @f = split(' ',$_);
+    $label = $f[0];
+    $s = $f[1];
+#    print "$label  $s   \n" if(($_ =~ /MB/)||($_ =~ /MQ/));
+    if($_ =~ /MB/){
+  print out "$s 0  \n";
+  print out "$s 1  \n";
+  print out "$s 0  \n";
+}
+if($_ =~ /MQ/){
+  print out "$s 0  \n";
+  print out "$s 2  \n";
+  print out "$s 0  \n";
+
+}
+}
+
+close(out,$ARGV[1]);
+close(in,$ARGV[0]);

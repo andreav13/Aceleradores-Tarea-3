@@ -1,0 +1,5 @@
+../madx-linux32 <  multiorbtest.madx
+./do_optics twiss.dat optics.out
+gnuplot gplot 
+evince plot.eps &
+./xmgrplot

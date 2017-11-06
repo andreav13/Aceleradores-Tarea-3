@@ -1,0 +1,4 @@
+../madx-linux32 < multiorbtest.madx
+./readtrackone1.py 183 3 1 1 BPM.29R1.B1
+cp orbita.dat orbita3.dat
+gnuplot -p -e "p './orbita3.dat' u 1:2 w l"

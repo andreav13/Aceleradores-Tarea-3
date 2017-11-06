@@ -1,0 +1,2 @@
+tail -13208 twiss.dat > twiss_noheader.dat
+xmgrace -pexec "arrange(2,1,.1,.1,.1,ON,ON,ON)" optics.out -world 0 0 27000 3  -graph 1 twiss_noheader.dat  -world 0 0 27000 600

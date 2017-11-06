@@ -1,0 +1,3 @@
+../madx-linux32 < multiorbtest.madx
+./readtrackone1.py 1 1 100 1  BPMR.6R1.B1
+gnuplot -p -e "p './elipse.dat' u 1:2"

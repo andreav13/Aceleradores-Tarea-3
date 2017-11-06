@@ -1,0 +1,48 @@
+@ NAME             %05s "TWISS"
+@ TYPE             %05s "TWISS"
+@ SEQUENCE         %05s "LHCB1"
+@ PARTICLE         %06s "PROTON"
+@ MASS             %le         0.938272013
+@ CHARGE           %le                   1
+@ ENERGY           %le                 450
+@ PC               %le         449.9990218
+@ GAMMA            %le         479.6050546
+@ KBUNCH           %le                   1
+@ BCURRENT         %le      0.000207198211
+@ SIGE             %le                   0
+@ SIGT             %le                   0
+@ NPART            %le            1.15e+11
+@ EX               %le                   1
+@ EY               %le                   1
+@ ET               %le                   1
+@ LENGTH           %le          26658.8832
+@ ALFA             %le      0.000321634169
+@ ORBIT5           %le                  -0
+@ GAMMATR          %le         55.75950503
+@ Q1               %le         64.28000068
+@ Q2               %le         59.31000012
+@ DQ1              %le        -86.19015569
+@ DQ2              %le        -81.51559529
+@ DXMAX            %le         2.859817065
+@ DYMAX            %le                   0
+@ XCOMAX           %le                   0
+@ YCOMAX           %le                   0
+@ BETXMAX          %le         595.1194258
+@ BETYMAX          %le         609.5259281
+@ XCORMS           %le                   0
+@ YCORMS           %le                   0
+@ DXRMS            %le         1.396874723
+@ DYRMS            %le                   0
+@ DELTAP           %le                   0
+@ SYNCH_1          %le                   0
+@ SYNCH_2          %le                   0
+@ SYNCH_3          %le                   0
+@ SYNCH_4          %le                   0
+@ SYNCH_5          %le                   0
+@ TITLE            %52s "V6.5: new IR3/7, moved Q3 in IR1/2/5/8 -  March 2004"
+@ ORIGIN           %19s "MAD-X 5.00.00 Linux"
+@ DATE             %08s "04/11/17"
+@ TIME             %08s "00.44.29"
+* NAME                                S               BETX               ALFX 
+$ %s                                %le                %le                %le 
+ "BPMR.6R1.B1"              25494.00383         77.6091092      -0.4979511827

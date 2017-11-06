@@ -1,0 +1,4 @@
+../madx-linux32 < multiorbtest.madx
+./todaslasorbitas.py
+gnuplot todaslasorbitas.gplot 
+evince plot.eps
