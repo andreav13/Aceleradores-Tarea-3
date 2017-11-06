@@ -11,7 +11,7 @@ pf.write(graphname)
 inicial = " p "
 #print >>pf, inicial
 pf.write(inicial)
-for i in range(1,2):
+for i in range(1,183):
     cmdsystem = "./readtrackone1.py " + "1 " + str(i) + " 1"+ " 1" " BPM.29R1.B1"
     print cmdsystem
     os.system(cmdsystem)

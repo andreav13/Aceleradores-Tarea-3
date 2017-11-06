@@ -1,0 +1,1 @@
+gnuplot -p -e "p './distcuad.dat' u 3:5,'./distribout21.dat' u 1:2,'./distribout22.dat' u 1:2,'./distribout23.dat' u 1:2,'./distribout24.dat' u 1:2,'./distribout25.dat' u 1:2"

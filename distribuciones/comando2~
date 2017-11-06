@@ -1,0 +1,12 @@
+../madx-linux32 < multiorbtest.madx
+./readtrackone1.py 900 1 5 1 BPM.29R1.B1
+cp distribout.dat distribout21.dat
+./readtrackone1.py 900 1 5 2 BPM.29R1.B1
+cp distribout.dat distribout22.dat
+./readtrackone1.py 900 1 5 3 BPM.29R1.B1
+cp distribout.dat distribout23.dat
+./readtrackone1.py 900 1 5 4 BPM.29R1.B1
+cp distribout.dat distribout24.dat
+./readtrackone1.py 900 1 5 5 BPM.29R1.B1
+cp distribout.dat distribout25.dat
+gnuplot -p -e "p './dist.dat' u 3:5,'./distribout21.dat' u 1:2,'./distribout22.dat' u 1:2,'./distribout23.dat' u 1:2,'./distribout24.dat' u 1:2,'./distribout25.dat' u 1:2"

@@ -101,9 +101,9 @@ for line in tracks:
 #Esto sirve para hacer las elipses de fase que describe una particula vuelta tras vuelta
 #Ejemplo de ejecucion ./readtrackone1.py 1 1 100 1  BPM.29R1.B1 Para este caso el archivo madx debe simular una particula por 100 vueltas y observarlo en BPM.29R1.B1
 
-for vueltas in range(1,nturns+1):
-    [bpmnom,s,ppart,vvuelta,bbpm,x,px] =  pxpy(npartsel,vueltas,bpmnumber)
-    print >>pfe, x,px,s
+#for vueltas in range(1,nturns+1):
+#    [bpmnom,s,ppart,vvuelta,bbpm,x,px] =  pxpy(npartsel,vueltas,bpmnumber)
+#    print >>pfe, x,px,s
 
 
 
@@ -112,9 +112,9 @@ for vueltas in range(1,nturns+1):
 #Ejemplo de ejecucion ./readtrackone1.py 500 1 5 1 BPM.29R1.B1    Para este caso el archivo madx debe simular 500 particulas por 5 vueltas  observarlo en un bpm. La vuelta de
 #observacion escogida por readtrackone1.py es en este caso la vuelta 1    
 
-#for nnpart in range(1,npart+1):
-#     [bpmnom,s,ppart,vvuelta,bbpm,x,px] =  pxpy(nnpart,nturnsel,bpmnumber)
-#     print >>pfd, x,px
+for nnpart in range(1,npart+1):
+     [bpmnom,s,ppart,vvuelta,bbpm,x,px] =  pxpy(nnpart,nturnsel,bpmnumber)
+     print >>pfd, x,px
 
 
 
