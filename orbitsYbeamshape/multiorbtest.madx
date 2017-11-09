@@ -49,14 +49,14 @@ ksd.b2         :=     0;
 
 use, period=lhcb1;
 select, flag=twiss, clear;
-select, flag=twiss, PATTERN="BPM.*\.B1", column=name,s,betx;
+select, flag=twiss, PATTERN="BPM.*\.B1", column=name,s,betx,alfx,mux,x,dx;
 twiss, sequence=lhcb1, file="twiss.dat";
 
 !Ejemnplos en http://frs.home.cern.ch/frs/mad-X_examples/ptc_track/Example2/fv9_2.madx
 PTC_CREATE_UNIVERSE;
 PTC_CREATE_LAYOUT,model=2,method=6, nst=10;
 !call, file="dist.dat";
-PTC_START, x= 0.001 ,y= 0 ;
+PTC_START, x= -0.0018 ,px= -2.33333333333e-05 ;
 !call, file="../somebpm.madx";
 PTC_OBSERVE, place="BPM.23L1.B1";
 PTC_OBSERVE, place="BPM.22L1.B1";
@@ -113,7 +113,7 @@ PTC_OBSERVE, place="BPM.27R1.B1";
 PTC_OBSERVE, place="BPM.28R1.B1";
 PTC_TRACK,icase=4,dump, 
        element_by_element,
-       turns=183, ffile=1, norm_no=1,
+       turns=5, ffile=1, norm_no=1,
        onetable;
 PTC_TRACK_END;
 PTC_END;
