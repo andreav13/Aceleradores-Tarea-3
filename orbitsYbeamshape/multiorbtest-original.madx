@@ -39,7 +39,7 @@ ksd.b2         :=     0;
 !use, period=lhcb1;
 !!magerror:multipole, knl:={0,0.0002}, ksl:={0,0.0002};
 !!magquaderror:multipole, knl:={0,0.0001};
-magdiperror:HKICKER, KICK=0.0001;
+!magdiperror:HKICKER, KICK=0.0001;
 !seqedit, sequence=lhcb1; flatten;
 ! install, element=magquaderror, at=0.0, from=BPMSY.4L1.B1;
 !!install, element=magdiperror, at=0.0, from=BPMSY.4L1.B1;
@@ -55,7 +55,7 @@ twiss, sequence=lhcb1, file="twiss.dat";
 !Ejemnplos en http://frs.home.cern.ch/frs/mad-X_examples/ptc_track/Example2/fv9_2.madx
 PTC_CREATE_UNIVERSE;
 PTC_CREATE_LAYOUT,model=2,method=6, nst=10;
-PTC_START, x=0.001, y=0;
+call, file="dist.dat";
 call, file="../somebpm.madx";
 PTC_TRACK,icase=4,dump, 
        element_by_element,
