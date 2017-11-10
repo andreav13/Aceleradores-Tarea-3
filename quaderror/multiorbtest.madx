@@ -1,0 +1,72 @@
+title, "V6.5: new IR3/7, moved Q3 in IR1/2/5/8 -  March 2004" ;
+
+option, -echo, -info,  warn;
+call,   file = "../V6.5.seq";
+call,   file = "../V6.5.inj.str";
+
+!seqedit, sequence=lhcb1; ! The first monitor in data acquisition is BPMYB.5L2.B1
+!flatten;                 ! as far as I could let Verena understand my question exactly.... 5/Sep/2008 MA
+
+!cycle, start=MSIA.EXIT.B1;
+!endedit;
+
+seqedit, sequence=lhcb1;
+flatten;
+!cycle, start=MSIA.EXIT.B1;
+cycle, start=BPM.29R1.B1;
+endedit;
+
+
+
+
+option,  echo,  info,  warn;
+
+beam, particle = proton, sequence=lhcb1, energy = 450.0;
+beam,      sequence=lhcb1,particle=proton,energy=450,kbunch=1,npart=1.15E11;
+
+!  set switches to 1 if crossing scheme is required
+ on_x1   := 0; on_x2   := 0; on_x5   := 0; on_x8   := 0;
+ on_sep1 := 0; on_sep2 := 0; on_sep5 := 0; on_sep8 := 0;
+ on_alice:= 0; on_lhcb := 0;
+ 
+ksf.b1         :=     0;  // Turning off chromaticity correctors
+ksd.b1         :=     0; 
+ksf.b2         :=     0;
+ksd.b2         :=     0;
+
+
+!!! Insercion del error
+use, period=lhcb1;
+!magerror:multipole, knl:={0,0.0002}, ksl:={0,0.0002};
+magquaderror:multipole, ksl:={0,0.0008};
+!magdiperror:HKICKER, KICK=0.0001;
+seqedit, sequence=lhcb1; flatten;
+install, element=magquaderror, at=0.0, from=BPMSY.4L1.B1;
+!!install, element=magdiperror, at=0.0, from=BPMSY.4L1.B1;
+endedit;
+
+
+
+use, period=lhcb1;
+select, flag=twiss, clear;
+select, flag=twiss, PATTERN="a*", column=name,s,betx,bety,alfx,alfy,mux,muy,x,y;
+!select, flag=twiss, column=name,s,betx,bety,alfx,alfy,mux,muy,x,y,dx;
+twiss, sequence=lhcb1, file="twiss.dat";
+
+!Ejemnplos en http://frs.home.cern.ch/frs/mad-X_examples/ptc_track/Example2/fv9_2.madx
+PTC_CREATE_UNIVERSE;
+PTC_CREATE_LAYOUT,model=2,method=6, nst=10;
+!call, file="dist.dat";
+PTC_START,x=0.001,px=0;
+!call, file="../somebpm.madx";
+PTC_OBSERVE, place="BPM.29R1.B1"; 
+!PTC_OBSERVE, place="BPMR.6R1.B1"; 
+PTC_TRACK,icase=4,dump, 
+       element_by_element,
+       turns=300, ffile=1, norm_no=1,
+       onetable;
+PTC_TRACK_END;
+PTC_END;
+
+stop;
+
